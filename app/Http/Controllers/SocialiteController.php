@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash; // Added Hash facade
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Str;
 
@@ -27,7 +28,7 @@ class SocialiteController extends Controller
                 [
                     'fullname' => $googleUser->getName(),
                     'email_verified_at' => now(),
-                    'password' => bcrypt(Str::random(24)), // mot de passe aléatoire
+                    'password' => Hash::make(Str::random(24)), // mot de passe aléatoire
                 ]
             );
 
