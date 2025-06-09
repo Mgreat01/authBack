@@ -6,7 +6,6 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\SocialiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +38,3 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Socialite (login via Google)
-
-
- Route::get('/auth/google/redirect', [SocialiteController::class, 'redirectToGoogle']);
- Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback']);
